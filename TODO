@@ -1,0 +1,6 @@
+* Consume weather API and reproduce the weather in the world
+* Create an El-Nino world, and La-Nina as well
+* Create sheep flocks in a terrain
+* Reproduce the Hobbit Shire
+* Automate the creation of worlds from elevation maps
+* Automate the creation of worlds consuming WFS/WMS services. e.g. rivers, roads.
