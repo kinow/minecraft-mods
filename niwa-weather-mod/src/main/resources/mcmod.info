@@ -1,0 +1,16 @@
+[
+{
+  "modid": "niwa-weather",
+  "name": "NIWAWeather Minecraft mod",
+  "description": "Syncs the world weather with NIWA weather",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "https://github.com/kinow/minecraft-mods/niwa-weather-mod",
+  "updateUrl": "",
+  "authorList": ["Bruno P. Kinoshita"],
+  "credits": "NIWA, Bruno P. Kinoshita",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

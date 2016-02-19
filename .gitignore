@@ -1,0 +1,25 @@
+# eclipse
+niwa-weather-mod/bin
+niwa-weather-mod/*.launch
+niwa-weather-mod/.settings
+niwa-weather-mod/.metadata
+niwa-weather-mod/.classpath
+niwa-weather-mod/.project
+
+# idea
+niwa-weather-mod/out
+niwa-weather-mod/*.ipr
+niwa-weather-mod/*.iws
+niwa-weather-mod/*.iml
+niwa-weather-mod/.idea
+
+# gradle
+niwa-weather-mod/build
+niwa-weather-mod/.gradle
+
+# other
+niwa-weather-mod/eclipse
+niwa-weather-mod/run
+
+
+
