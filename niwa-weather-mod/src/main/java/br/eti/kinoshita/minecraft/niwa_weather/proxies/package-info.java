@@ -1,0 +1,6 @@
+/**
+ * Proxies.
+ * @author Bruno P. Kinoshita
+ * @since 0.1
+ */
+package br.eti.kinoshita.minecraft.niwa_weather.proxies;
