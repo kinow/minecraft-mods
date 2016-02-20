@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = ModInformation.ID, version = ModInformation.VERSION)
+@Mod(modid = ModInformation.ID, name = ModInformation.NAME, version = ModInformation.VERSION)
 public class NIWAWeatherMod {
 
     @SidedProxy(clientSide = ModInformation.CLIENTPROXY, serverSide = ModInformation.COMMONPROXY)
