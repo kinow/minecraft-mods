@@ -7,6 +7,7 @@ import br.eti.kinoshita.minecraft.niwa_weather.proxies.CommonProxy;
 import br.eti.kinoshita.minecraft.niwa_weather.util.TextHelper;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -19,7 +20,12 @@ public class NIWAWeatherMod {
     public static CommonProxy proxy;
     
     public static Logger logger = LogManager.getLogger(ModInformation.NAME);
+    
+    @Instance(value=ModInformation.ID)
+    public static NIWAWeatherMod instance;
 
+    public volatile NIWAWeatherResponse weatherToday;
+    
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         logger.info(TextHelper.localize("info." + ModInformation.ID + ".console.load.preInit"));
