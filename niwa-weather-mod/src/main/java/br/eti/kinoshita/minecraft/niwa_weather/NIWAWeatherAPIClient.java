@@ -3,6 +3,7 @@ package br.eti.kinoshita.minecraft.niwa_weather;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.TimerTask;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpEntity;
@@ -18,7 +19,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-public class NIWAWeatherAPIClient implements Runnable {
+public class NIWAWeatherAPIClient extends TimerTask {
 
     // TODO: make it a configuration
     private String url = "http://weather.niwa.co.nz/data/hourly/";
@@ -82,6 +83,7 @@ public class NIWAWeatherAPIClient implements Runnable {
                     
                     NIWAWeatherMod mod = NIWAWeatherMod.instance;
                     if (mod != null) {
+                        NIWAWeatherMod.logger.log(Level.INFO, "Mod weather updated!");
                         mod.weatherToday = niwaWeatherResponse;
                     }
                     break;

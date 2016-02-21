@@ -3,6 +3,7 @@ package br.eti.kinoshita.minecraft.niwa_weather;
 import org.apache.logging.log4j.Level;
 
 import net.minecraft.world.World;
+import net.minecraft.world.storage.WorldInfo;
 import net.minecraftforge.client.event.RenderWorldLastEvent;
 import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.event.world.WorldEvent.Save;
@@ -25,7 +26,7 @@ public class EventHandlerForge {
     @SubscribeEvent
     @SideOnly(Side.CLIENT)
     public void worldRender(RenderWorldLastEvent event) {
-        ClientTickHandler.checkClientWeather();
+        // ClientTickHandler.checkClientWeather();
         // ClientTickHandler.weatherManager.tickRender(event.partialTicks);
     }
 
@@ -43,11 +44,22 @@ public class EventHandlerForge {
 
         long currentTime = System.currentTimeMillis();
         if (currentTime > (lastTimeRead + sleepTime)) {
-            NIWAWeatherMod.logger.log(Level.INFO, "Setting the time to rain modeeeee!!! Weeee");
+            if (NIWAWeatherMod.logger.isDebugEnabled())
+                NIWAWeatherMod.logger.log(Level.DEBUG, "Trying to set the world weather...");
             final World world = event.world;
-            world.getWorldInfo().setRaining(true);
+            NIWAWeatherMod mod = NIWAWeatherMod.instance;
+            if (mod != null && mod.weatherToday != null) {
+                NIWAWeatherResponse weather = mod.weatherToday;
+                setWorldWeather(world, weather);
+            }
             lastTimeRead = currentTime;
         }
     }
 
+    protected void setWorldWeather(World world, NIWAWeatherResponse weather) {
+        WorldInfo info = world.getWorldInfo();
+        
+        info.setRaining(weather.getRainAmount() > 0.0);
+    }
+    
 }
