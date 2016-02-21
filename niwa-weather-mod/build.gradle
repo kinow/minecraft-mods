@@ -37,6 +37,9 @@ minecraft {
 
     if (project.hasProperty('mappings_version'))
         mappings = project.mappings_version
+       
+    // TODO: fix this 
+    mappings = "stable_20"
 }
 
 processResources {
